@@ -1,0 +1,339 @@
+@import "button";
+@import "input";
+@import "loader";
+@import "menu";
+@import "panels";
+@import "border-radius";
+@import "select";
+@import "../../node_modules/preact-range-slider/assets/index.scss";
+@import "text";
+@import "spoiler";
+@import "switches";
+
+html {
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  transition: background-color 0.5s ease-in-out;
+  &.loading {
+    #loader {
+      display: block;
+    }
+    #app {
+      display: none;
+    }
+  }
+}
+
+#wrapper {
+  margin-top: 3em;
+  text-align: center;
+  text-align-last: center;
+}
+
+/* Заголовок вверху (MD | ND) */
+.header {
+  margin: 0.5em auto 0;
+  color: #e66;
+  font-weight: bold;
+}
+
+.logo {
+  float: left;
+  margin-left: 10%;
+  margin-top: -1em;
+  width: 20%;
+  height: 3em;
+  background: no-repeat center center;
+  background-size: contain;
+}
+
+/* СОРТИРОВЩИК */
+/* Полоска цветовой зоны */
+.cdl {
+  height: 0.3em;
+}
+
+/* Сортировщик устройств по цвету */
+.cDev {
+  margin: 0.3em !important;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2em;
+  box-shadow: 0 1px 2px #555555;
+  transition: all 0.2s ease-in-out;
+  &:hover, &:active, &.active {
+    transform: scale(1.2);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Сортировщик устройств по типу */
+.tDev {
+  padding: .2em;
+  display: block;
+  color: #555555;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  transition: all 0.2s ease-out;
+  border-radius: 1em;
+  box-shadow: 0 1px 5px #555555;
+  &:hover, &:active, &.active {
+    background-color: #BBCCDD;
+  }
+}
+
+/* Скрытие элементов */
+.hidden {
+  display: none !important;
+}
+
+/* Обертка для назначения свойств стилей */
+.reset {
+  margin: 0;
+  padding: 0;
+}
+
+.title-editscheme {
+  color: #FF6666;
+}
+
+/* БЛОК СЕТЕВОГО УСТРОЙСТВА */
+.block {
+  border-radius: 1em;
+}
+
+// Заголовок блока
+.dev-wrp {
+  margin: 0.5em;
+  padding: 0;
+  text-decoration: none;
+  .dev-icon {
+    float:left;
+  }
+  .dev-title {
+    display: block;
+    margin-bottom: 3em;
+  }
+}
+
+/* Стиль вставки dev.htm */
+.devhtm {
+  background-color: #eee;
+}
+
+// Низ блока
+.dev-bottom {
+  padding: .5em;
+  border-top: 1px solid #aaa;
+}
+
+/* БЛОК СЦЕНАРИЯ */
+.sc-device, .tsc {
+  margin: 0 0.5em 0.1em 0.5em;
+  padding: 0.2em 0;
+}
+
+.sc-device:last-child {
+  border-radius: 0 0 .7em .7em;
+}
+
+.tsc {
+  border-radius: .7em .7em 0 0;
+  text-transform: uppercase;
+}
+
+/* Обертка контента сценария */
+.sc-main {
+  margin: 0 auto !important;
+  padding: 0.75em 0 0;
+}
+
+/* Имя сценария */
+.sc-name {
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  left: -.6em;
+  margin: .2em;
+  height: 1em;
+  font-size: 1.3em;
+  text-align: center;
+  text-align-last: center;
+  background: transparent;
+  cursor: pointer;
+  padding: .2em;
+  border: 0;
+  transition: all .2s ease-in-out;
+  &:hover, &:focus {
+    outline: none;
+  }
+}
+
+.sc-cont {
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+label {
+  cursor: pointer;
+}
+
+.action {
+  margin: 3% 0;
+}
+
+/* Размер для кнопок + и - в сценариях и выравнивание */
+.e2 {
+  height: 2em;
+  width: 2em;
+  min-width: 2em;
+}
+
+.flex-cont {
+  margin: .3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.flex-elem {
+  margin: .1em;
+  align-self: stretch;
+}
+
+.fe1 {
+  flex-grow: 1;
+}
+
+.fe2 {
+  flex-grow: 0;
+}
+
+.fe3 {
+  flex-grow: 0;
+}
+
+.fe4 {
+  flex-grow: 1;
+}
+
+.fe5 {
+  flex-grow: 1;
+}
+
+.fe6 {
+  flex-grow: 0;
+}
+
+.fe7 {
+  flex-grow: 0;
+}
+
+.fe8 {
+  flex-grow: 0;
+}
+
+/* Окно цифровых данных */
+.data {
+  height: 1.4em;
+  text-align: center;
+  text-align-last: center;
+  outline: none;
+  background-color: #FFFFFF;
+  border-radius: 1em;
+  border: 1px solid #99AABB;
+}
+
+/* Блок для группировки настроек внутри */
+.block-in {
+  margin: 1em auto;
+  padding-bottom: .5em;
+  width: 95%;
+  overflow: hidden;
+  border-radius: 1em;
+  border: 1px solid #777;
+}
+
+/* ЦВЕТА ЭЛЕМЕНТОВ */
+/* Заглушка в сценариях для разметки (имитация кнопки) */
+.empty, .empty:hover, .empty:active {
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: default;
+}
+
+.blc {
+  display: none;
+  &:active {
+    display: block;
+  }
+}
+
+//Генератор ширины элемента .w1 .. .w100 == 1% .. 100%
+$i: 1;
+@while $i <= 100 {
+  .w#{$i} {
+    width: $i * 1%;
+  }
+  $i: $i + 1;
+}
+//Генератор высоты элемента .h1 .. .h10 == 1em .. 10em
+$i: 1;
+@while $i <= 10 {
+  .h#{$i} {
+    height: $i * 1em;
+  }
+  $i: $i + 1;
+}
+
+/* БЛОК НАСТРОЕК */
+.sb {
+  border: none;
+  margin: 1em auto;
+  padding: 0 1em 1em;
+  border-radius: 1em;
+  transition: background-color .5s ease-in-out;
+}
+
+/* Заголовок блока настроек */
+.tsb {
+  margin: 0 auto !important;
+  padding: .5em;
+  font-weight: bold !important;
+}
+
+/* Поле выбора файла */
+.fileform {
+  margin: .5em auto;
+  position: relative;
+  display: block;
+  padding: .3em;
+  height: 1.3em;
+  cursor: pointer;
+  color: #555555;
+  border: 1px solid #99AABB;
+  border-radius: 2em;
+}
+
+.upload {
+  display: none;
+}
+
+p {
+  margin: .5em auto .2em auto;
+}
+
+@import "media";
+@import "themes";

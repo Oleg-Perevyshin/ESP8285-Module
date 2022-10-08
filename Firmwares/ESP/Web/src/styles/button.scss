@@ -1,0 +1,17 @@
+.button {
+    display: inline-block;
+    margin: 0.3em;
+    padding: 0.3em;
+    min-width: 3em;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid;
+    overflow: hidden;
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        opacity: .5;
+    }
+}

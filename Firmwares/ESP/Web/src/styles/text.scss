@@ -1,0 +1,40 @@
+/* ВЫРАВНИВАНИЕ И СТИЛИ ТЕКСТА */
+.left {
+  text-align: left;
+  text-align-last: left;
+  padding-left: 1em;
+}
+
+.center {
+  text-align: center;
+  text-align-last: center;
+  padding: .1em 1em;
+}
+
+.right {
+  text-align: right;
+  text-align-last: right;
+  padding-right: 1em;
+}
+
+.justify {
+  text-align: justify;
+  text-align-last: justify;
+  padding: .1em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.uline {
+  text-decoration: underline;
+}
+
+.indent {
+  text-indent: 1em;
+}

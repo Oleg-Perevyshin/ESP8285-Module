@@ -1,0 +1,255 @@
+/* АДАПТАЦИЯ ПОД РАЗНЫЕ РАЗРЕШЕНИЯ ЭКРАНА */
+
+/* Для разрешения от 1279px */
+@media (min-width: 1279px) {
+  .logo {
+    display: none;
+  }
+  #menu ul li a span.mt, #menu ul li:hover a span.mt, #menu .active a span.mt {
+    font-size: 9pt;
+  }
+  .main {
+    margin: 0 auto 5em auto;
+    padding-bottom: 3em;
+    position: absolute;
+    width: 512px;
+    left: 30%;
+    right: 30%;
+    min-height: 35em;
+    border-radius: 1.5em;
+    transition: background-color 0.5s ease-in-out;
+  }
+  .block {
+    margin: 1em auto;
+    display: block;
+    width: 95%;
+  }
+  h1 {
+    font: normal 12pt Verdana;
+  }
+  h2, .button {
+    font: normal 11pt Verdana;
+  }
+  h3, #wrapper, a, p, span, .cDev, .tDev, .tsb, .fileform, .input, .select {
+    font: normal 10pt Verdana;
+  }
+  h4, .dev-bottom, .footer {
+    font: normal 9pt Verdana;
+  }
+  h5 {
+    font: normal 8pt Verdana;
+  }
+  .cDev {
+    width: 2.3em;
+    height: 2.3em;
+  }
+}
+
+/* Для разрешения до 1279px */
+@media (max-width: 1279px) {
+  .logo {
+    display: none;
+  }
+  #menu ul li a span.mt, #menu ul li:hover a span.mt, #menu .active a span.mt {
+    font-size: 8pt;
+  }
+  .block {
+    margin: 1em auto;
+    display: block;
+    width: 95%;
+  }
+  h1 {
+    font: normal 11pt Verdana;
+  }
+  h2, .button {
+    font: normal 10pt Verdana;
+  }
+  h3, #wrapper, a, p, span, .cDev, .tDev, .tsb, .fileform, .input, .select {
+    font: normal 9pt Verdana;
+  }
+  h4, .dev-bottom, .footer {
+    font: normal 8pt Verdana;
+  }
+  h5 {
+    font: normal 7pt Verdana;
+  }
+  .cDev {
+    width: 2.2em;
+    height: 2.2em;
+  }
+}
+
+/* Для разрешения до 1023px */
+@media (max-width: 1023px) {
+  .logo {
+    display: none;
+  }
+  #menu ul li a span.mt, #menu ul li:hover a span.mt, #menu .active a span.mt {
+    font-size: 7pt;
+  }
+  .block {
+    margin: 1em auto;
+    display: block;
+    width: 95%;
+  }
+  h1 {
+    font: normal 10pt Verdana;
+  }
+  h2, .button {
+    font: normal 9pt Verdana;
+  }
+  h3, #wrapper, a, p, span, .cDev, .tDev, .tsb, .fileform, .input, .select {
+    font: normal 8pt Verdana;
+  }
+  h4, .dev-bottom, .footer {
+    font: normal 7pt Verdana;
+  }
+  h5 {
+    font: normal 6pt Verdana;
+  }
+  .cDev {
+    width: 2.1em;
+    height: 2.1em;
+  }
+}
+
+/* Для разрешения до 956px */
+@media (max-width: 956px) {
+  .logo {
+    display: none;
+  }
+  #menu ul li a span.mt, #menu ul li:hover a span.mt, #menu .active a span.mt {
+    font-size: 6pt;
+  }
+  .block {
+    margin: 1em auto;
+    display: block;
+    width: 95%;
+  }
+  h1 {
+    font: normal 9pt Verdana;
+  }
+  h2, .button {
+    font: normal 8pt Verdana;
+  }
+  h3, #wrapper, a, p, span, .cDev, .tDev, .tsb, .fileform, .input, .select {
+    font: normal 7pt Verdana;
+  }
+  h4, .dev-bottom, .footer {
+    font: normal 6pt Verdana;
+  }
+  h5 {
+    font: normal 5pt Verdana;
+  }
+  .cDev {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+/* Для разрешения до 767px */
+@media (max-width: 767px) {
+  #rCheck, #lCheck, .lbar, .rbar, .logo {
+    display: none;
+  }
+  #menu ul li a span.mt, #menu ul li:hover a span.mt, #menu .active a span.mt {
+    font-size: 7pt;
+  }
+  .block {
+    margin: 1em auto;
+    display: block;
+    width: 95%;
+  }
+  .main {
+    width: 70%;
+    left: 15%;
+  }
+  h1 {
+    font: normal 10pt Verdana;
+  }
+  h2, .button {
+    font: normal 9pt Verdana;
+  }
+  h3, #wrapper, a, p, span, .cDev, .tDev, .tsb, .fileform, .input, .select {
+    font: normal 8pt Verdana;
+  }
+  h4, .dev-bottom, .footer {
+    font: normal 7pt Verdana;
+  }
+  h5 {
+    font: normal 6pt Verdana;
+  }
+  .cDev {
+    width: 1.9em;
+    height: 1.9em;
+  }
+}
+
+/* Для разрешения до 479px */
+@media (max-width: 479px) {
+  #rCheck, #lCheck, .lbar, .rbar, .logo {
+    display: none;
+  }
+  #menu ul li a span.mt, #menu ul li:hover a span.mt, #menu .active a span.mt {
+    font-size: 6pt;
+  }
+  .block {
+    margin: 1em auto;
+    display: block;
+    width: 95%;
+  }
+  .main {
+    width: 90%;
+    left: 5%;
+  }
+  h1 {
+    font: normal 9pt Verdana;
+  }
+  h2, .button {
+    font: normal 8pt Verdana;
+  }
+  h3, #wrapper, a, p, span, .cDev, .tDev, .tsb, .fileform, .input, .select {
+    font: normal 7pt Verdana;
+  }
+  h4, .dev-bottom, .footer {
+    font: normal 6pt Verdana;
+  }
+  h5 {
+    font: normal 5pt Verdana;
+  }
+  .cDev {
+    width: 1.8em;
+    height: 1.8em;
+  }
+}
+
+/* Для разрешения до 319px */
+@media (max-width: 319px) {
+  .main {
+    display: none;
+  }
+  /* Стиль при недостаточном разрешении экрана */
+  .info {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 7em 3em 2em;
+    color: #EEEEEE;
+    background-color: #223344;
+    text-align: center;
+    text-align-last: center;
+    border-radius: 1em;
+    box-shadow: 0 2px 5px #555555;
+  }
+
+  .logo {
+    display: block;
+    position: absolute;
+    height: 4em;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -9em;
+    background: no-repeat 50%;
+    background-size: contain;
+  }
+}

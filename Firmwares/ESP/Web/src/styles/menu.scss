@@ -1,0 +1,43 @@
+/* ИКОНКИ */
+.icon-manager, .icon-network, .icon-control, .icon-script, .icon-settings {
+  background: no-repeat center center;
+  background-size: contain;
+}
+
+/* МЕНЮ */
+#menu {
+  margin: 0;
+  ul {
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    li {
+      display: table-cell;
+      text-align: center;
+      text-align-last: center;
+      cursor: pointer;
+      a {
+        display: block;
+        text-decoration: none;
+        .icon {
+          height: 3em;
+          transition: all 0.2s ease-out;
+        }
+        .icon-container {
+          height: 4em;
+        }
+        .mt {
+          display: block !important;
+          margin-top: .5em;
+          text-transform: uppercase;
+        }
+        &:hover, &.active {
+          .icon {
+            height: 4em;
+          }
+        }
+      }
+    }
+  }
+}

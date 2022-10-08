@@ -1,0 +1,63 @@
+/* СПОЙЛЕР (треугольник с фоном) */
+.spl {
+  overflow: hidden;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.toggle {
+  display: block;
+  cursor: pointer;
+  margin: 0 auto;
+  font-size: 0.5em;
+  background-color: #999;
+  color: #eee;
+  width: 4em;
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
+.checker:checked ~ .spl {
+  max-height: 150em;
+  transition: max-height 1s ease-in-out;
+}
+
+.checker:not(:checked) ~ .spl {
+  max-height: 0;
+  transition: max-height 1s ease-in-out;
+  transition-delay: -0.75s;
+}
+
+.checker:checked ~ .toggle:before {
+  content: "\25B2";
+}
+
+.checker:not(:checked) ~ .toggle:before {
+  content: "\25BC";
+}
+
+/* СПОЙЛЕР (треугольник без фона) */
+.sc-toggle {
+  position: relative;
+  display: block;
+  margin: 0;
+}
+
+.sc-checker:checked ~ .sc-cont {
+  max-height: 150em;
+  transition: max-height 1s ease-in-out;
+}
+
+.sc-checker:not(:checked) ~ .sc-cont {
+  max-height: 0;
+  transition: max-height 1s ease-in-out;
+  transition-delay: -0.75s;
+}
+
+.sc-checker:checked ~ .sc-toggle:before {
+  content: "\25B2";
+}
+
+.sc-checker:not(:checked) ~ .sc-toggle:before {
+  content: "\25BC";
+}

@@ -1,0 +1,92 @@
+/* Флажок горизонтальный */
+.switch-hor {
+   display: none;
+ }
+
+.switch-hor:not(checked) + label.sc-switch {
+  position: relative;
+  display: inline-block;
+  width: 3em;
+  height: 1.5em;
+}
+
+.switch-hor:not(checked) + label.sc-switch:before {
+  content: "";
+  position: absolute;
+  top: .5em;
+  left: 1em;
+  width: 2em;
+  height: .5em;
+  border-radius: 1em;
+  background-color: #999;
+}
+
+.switch-hor:not(checked) + label.sc-switch:after {
+  content: "";
+  position: absolute;
+  top: 0.05em;
+  left: 0.63em;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 2em;
+  background-color: #fff;
+  border: .1em solid #777;
+  transition: all .2s;
+}
+
+.switch-hor:checked + label.sc-switch:before {
+  transition: background-color 0.2s;
+  background-color: #5599EE;
+  border-color: #3388EE;
+}
+
+.switch-hor:checked + label.sc-switch:after {
+  left: 2em;
+}
+
+/* Флажок вертикальный */
+.switch-ver {
+  display: none;
+}
+
+.switch-ver:not(checked) + label.sc-switch {
+  position: relative;
+  display: inline-block;
+  margin: 0.5em;
+  width: 1.5em;
+  height: 4em;
+}
+
+.switch-ver:not(checked) + label.sc-switch:before {
+  content: "";
+  position: absolute;
+  top: .25em;
+  left: 0;
+  width: 1em;
+  height: 2.5em;
+  border-radius: 1em;
+  background-color: #999;
+}
+
+.switch-ver:not(checked) + label.sc-switch:after {
+  content: "";
+  position: absolute;
+  top: 1.5em;
+  left: -0.37em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 2em;
+  background-color: #fff;
+  border: .1em solid #777;
+  transition: all .2s;
+}
+
+.switch-ver:checked + label.sc-switch:before {
+  transition: background-color 0.2s;
+  background-color: #5599EE;
+  border-color: #3388EE;
+}
+
+.switch-ver:checked + label.sc-switch:after {
+  top: -0.25em;
+}

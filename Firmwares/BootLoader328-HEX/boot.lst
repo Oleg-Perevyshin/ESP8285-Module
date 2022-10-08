@@ -1,0 +1,338 @@
+*********   D:\work\ESP8285-Module\Firmwares\BootLoader328-HEX\boot.alp    ***********
+*** BOOT section... ***
+$3C00: $940C:  V: goto $3C34
+$3C01: $3C34:  
+$3C02: $9518:  V: RETI
+$3C03: $0000:  V: NOP
+$3C04: $9518:  V: RETI
+$3C05: $0000:  V: NOP
+$3C06: $9518:  V: RETI
+$3C07: $0000:  V: NOP
+$3C08: $9518:  V: RETI
+$3C09: $0000:  V: NOP
+$3C0A: $9518:  V: RETI
+$3C0B: $0000:  V: NOP
+$3C0C: $9518:  V: RETI
+$3C0D: $0000:  V: NOP
+$3C0E: $9518:  V: RETI
+$3C0F: $0000:  V: NOP
+$3C10: $9518:  V: RETI
+$3C11: $0000:  V: NOP
+$3C12: $9518:  V: RETI
+$3C13: $0000:  V: NOP
+$3C14: $9518:  V: RETI
+$3C15: $0000:  V: NOP
+$3C16: $9518:  V: RETI
+$3C17: $0000:  V: NOP
+$3C18: $9518:  V: RETI
+$3C19: $0000:  V: NOP
+$3C1A: $9518:  V: RETI
+$3C1B: $0000:  V: NOP
+$3C1C: $9518:  V: RETI
+$3C1D: $0000:  V: NOP
+$3C1E: $9518:  V: RETI
+$3C1F: $0000:  V: NOP
+$3C20: $9518:  V: RETI
+$3C21: $0000:  V: NOP
+$3C22: $9518:  V: RETI
+$3C23: $0000:  V: NOP
+$3C24: $9518:  V: RETI
+$3C25: $0000:  V: NOP
+$3C26: $9518:  V: RETI
+$3C27: $0000:  V: NOP
+$3C28: $9518:  V: RETI
+$3C29: $0000:  V: NOP
+$3C2A: $9518:  V: RETI
+$3C2B: $0000:  V: NOP
+$3C2C: $9518:  V: RETI
+$3C2D: $0000:  V: NOP
+$3C2E: $9518:  V: RETI
+$3C2F: $0000:  V: NOP
+$3C30: $9518:  V: RETI
+$3C31: $0000:  V: NOP
+$3C32: $9518:  V: RETI
+$3C33: $0000:  V: NOP
+-----          V: BOOT_Reset
+-----          L: _BOOT_HEX_to_Flash
+$3C34: $94F8:  F: 0 -> I (0 -> I)
+$3C35: $EF0F:  S: $FF -> r16 ($FF->r16)
+$3C36: $BF0D:  S: r16 -> p$3D (r16->p61)
+$3C37: $E008:  S: $08 -> r16 ($08->r16)
+$3C38: $BF0E:  S: r16 -> p$3E (r16->p62)
+$3C39: $E000:  S: $00 -> r16 ($00->r16)
+$3C3A: $9300:  S: r16 -> [$00C5] (r16->UBRR0H)
+$3C3B: $00C5:  
+$3C3C: $E100:  S: $10 -> r16 ($10->r16)
+$3C3D: $9300:  S: r16 -> [$00C4] (r16->UBRR0L)
+$3C3E: $00C4:  
+$3C3F: $E006:  S: $06 -> r16 ($06->r16)
+$3C40: $9300:  S: r16 -> [$00C2] (r16->UCSR0C)
+$3C41: $00C2:  
+$3C42: $E002:  S: $02 -> r16 ($02->r16)
+$3C43: $9300:  S: r16 -> [$00C0] (r16->UCSR0A)
+$3C44: $00C0:  
+$3C45: $E108:  S: $18 -> r16 ($18->r16)
+$3C46: $9300:  S: r16 -> [$00C1] (r16->UCSR0B)
+$3C47: $00C1:  
+               F: $0000 -> BOOT_FLASH_Page_Address  ...
+$3C48: $E040:     $00 -> r20
+$3C49: $E050:     $00 -> r21
+$3C4A: $E31E:  F: $3E -> r17 (">" -> r17)
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3C4B ...
+$3C4B: $9100:     [$00C0] -> r16
+$3C4C: $00C0:  
+$3C4D: $FF05:     if (r16.5=1 then SKIP
+$3C4E: $CFFC:     goto $3C4B (RJMP)
+$3C4F: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3C50: $00C6:  
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3C51: $E0C0:     $00 -> r28
+$3C52: $E0D1:     $01 -> r29
+$3C53: $E030:  F: $00 -> r19 (0 -> HEX_Line_CheckSum)
+               F: 100 -> r15  ...
+$3C54: $E604:     $64 -> r16
+$3C55: $2EF0:     r16 -> r15
+-----          L: 
+$3C56: $D068:  F: rcall $3CBF (_BOOT_Test_Char)
+               C: if (r16 = ":") then goto $3C65 ...
+$3C57: $330A:     r16 = $3A
+$3C58: $F061:     if (Z=1) then goto $3C65
+$3C59: $D0A9:  F: rcall $3D03 (_BOOT_Pause)
+               C: if (r15 --) then goto $3C56 ...
+$3C5A: $94FA:     r15 --
+$3C5B: $F7D1:     if (Z=0) then goto $3C56
+$3C5C: $D0A6:  F: rcall $3D03 (_BOOT_Pause)
+$3C5D: $940C:  F: goto $0 (JMP $0000)
+$3C5E: $0000:  
+-----          L: 
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3C5F: $E0C0:     $00 -> r28
+$3C60: $E0D1:     $01 -> r29
+-----          L: 
+$3C61: $E030:  F: $00 -> r19 (0 -> HEX_Line_CheckSum)
+-----          L: 
+$3C62: $D044:  F: rcall $3CA7 (_BOOT_Receive_Char)
+               C: if (r16 -= ":") then goto $3C62 ...
+$3C63: $330A:     r16 = $3A
+$3C64: $F7E9:     if (Z=0) then goto $3C62
+-----          L: 
+$3C65: $D04A:  F: rcall $3CB0 (_BOOT_Receive_hex)
+$3C66: $2F20:  F: r16 -> r18 (r16 -> HEX_Line_Size)
+$3C67: $D048:  F: rcall $3CB0 (_BOOT_Receive_hex)
+$3C68: $D047:  F: rcall $3CB0 (_BOOT_Receive_hex)
+$3C69: $D046:  F: rcall $3CB0 (_BOOT_Receive_hex)
+               C: if (r16 -= 1) then goto $3C7E ...
+$3C6A: $3001:     r16 = $01
+$3C6B: $F491:     if (Z=0) then goto $3C7E
+               C: if (Y -= @BOOT_SRAM_Buffer) then goto $3C71 ...
+$3C6C: $30C0:     r28 = $00
+$3C6D: $E011:     $01 -> r17
+$3C6E: $07D1:     r29 = r17=
+$3C6F: $F009:     if (Z=1) then goto $3C71
+$3C70: $D057:  F: rcall $3CC8 (_Write_Page)
+$3C71: $E31C:  F: $3C -> r17 ("<" -> r17)
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3C72 ...
+$3C72: $9100:     [$00C0] -> r16
+$3C73: $00C0:  
+$3C74: $FF05:     if (r16.5=1 then SKIP
+$3C75: $CFFC:     goto $3C72 (RJMP)
+$3C76: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3C77: $00C6:  
+$3C78: $D08A:  F: rcall $3D03 (_BOOT_Pause)
+$3C79: $D089:  F: rcall $3D03 (_BOOT_Pause)
+$3C7A: $D088:  F: rcall $3D03 (_BOOT_Pause)
+$3C7B: $D087:  F: rcall $3D03 (_BOOT_Pause)
+$3C7C: $940C:  F: goto $0 (JMP $0000)
+$3C7D: $0000:  
+-----          L: 
+-----          L: 
+               C: if (r16 -= 0) then goto $3C61 ...
+$3C7E: $3000:     r16 = $00
+$3C7F: $F709:     if (Z=0) then goto $3C61
+               C: if (HEX_Line_Size = 0) then goto $3C86 ...
+$3C80: $3020:     r18 = $00
+$3C81: $F021:     if (Z=1) then goto $3C86
+-----          L: 
+$3C82: $D02D:  F: rcall $3CB0 (_BOOT_Receive_hex)
+$3C83: $9309:  F: r16 -> [Y++] (r16 -> [Y++])
+               C: if (HEX_Line_Size --) then goto $3C82 ...
+$3C84: $952A:     r18 --
+$3C85: $F7E1:     if (Z=0) then goto $3C82
+-----          L: 
+$3C86: $D029:  F: rcall $3CB0 (_BOOT_Receive_hex)
+               C: if (HEX_Line_CheckSum = 0) then goto $3C92 ...
+$3C87: $3030:     r19 = $00
+$3C88: $F049:     if (Z=1) then goto $3C92
+$3C89: $E211:  F: $21 -> r17 ("!" -> r17)
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3C8A ...
+$3C8A: $9100:     [$00C0] -> r16
+$3C8B: $00C0:  
+$3C8C: $FF05:     if (r16.5=1 then SKIP
+$3C8D: $CFFC:     goto $3C8A (RJMP)
+$3C8E: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3C8F: $00C6:  
+$3C90: $D072:  F: rcall $3D03 (_BOOT_Pause)
+$3C91: $DFA2:  F: rcall $3C34 (_BOOT_HEX_to_Flash)
+-----          L: 
+               C: if (Y < @BOOT_SRAM_Buffer + Flash_Page_Size * 2) then goto $3C61 ...
+$3C92: $38C0:     r28 = $80
+$3C93: $E011:     $01 -> r17
+$3C94: $07D1:     r29 = r17=
+$3C95: $F258:     if ( < ) then goto $3C61
+$3C96: $D031:  F: rcall $3CC8 (_Write_Page)
+$3C97: $E111:  F: $11 -> r17 (xOn -> r17)
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3C98 ...
+$3C98: $9100:     [$00C0] -> r16
+$3C99: $00C0:  
+$3C9A: $FF05:     if (r16.5=1 then SKIP
+$3C9B: $CFFC:     goto $3C98 (RJMP)
+$3C9C: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3C9D: $00C6:  
+$3C9E: $CFC0:  J: goto $3C5F (RJMP)
+-----          V: _BOOT_Do_SPM_
+               C: if (SELFPRGEN = 1) then goto $3C9F ...
+$3C9F: $B707:     p$37 -> r16
+$3CA0: $FD00:     if (r16.0=0 then SKIP
+$3CA1: $CFFD:     goto $3C9F (RJMP)
+-----          L: 
+$3CA2: $99F9:  C: if (p$1F.1=0 then SKIP (EEPE = 1)
+$3CA3: $CFFE:  C: goto $3CA2 (RJMP) (EEPE = 1)
+$3CA4: $BF17:  F: r17 -> p$37 (r17 -> SPMCSR)
+$3CA5: $95E8:  F: SPM (SPM)
+$3CA6: $9508:  F: RET (Ret)
+-----          V: _BOOT_Receive_Char
+               C: if (RXC0 = 0) then goto $3CA7 ...
+$3CA7: $9100:     [$00C0] -> r16
+$3CA8: $00C0:  
+$3CA9: $FF07:     if (r16.7=1 then SKIP
+$3CAA: $CFFC:     goto $3CA7 (RJMP)
+$3CAB: $9100:  F: [$00C6] -> r16 (UDR0 -> r16)
+$3CAC: $00C6:  
+               C: if (r16 < "0") then goto $3CA7 ...
+$3CAD: $3300:     r16 = $30
+$3CAE: $F3C0:     if ( < ) then goto $3CA7
+$3CAF: $9508:  F: RET (Ret)
+-----          V: _BOOT_Receive_hex
+$3CB0: $DFF6:  F: rcall $3CA7 (_BOOT_Receive_Char)
+$3CB1: $5300:  F: r16 - $30 (r16 - "0")
+               C: if (r16 >= 10) then goto $3CB5 ...
+$3CB2: $300A:     r16 = $0A
+$3CB3: $F008:     if ( < ) then goto $3CB5
+$3CB4: $5007:  F: r16 - $07 (r16 - 7)
+$3CB5: $9502:  F: >> r16 << (>> r16 <<)
+$3CB6: $2F10:  F: r16 -> r17 (r16 -> r17)
+$3CB7: $DFEF:  F: rcall $3CA7 (_BOOT_Receive_Char)
+$3CB8: $5300:  F: r16 - $30 (r16 - "0")
+               C: if (r16 >= 10) then goto $3CBC ...
+$3CB9: $300A:     r16 = $0A
+$3CBA: $F008:     if ( < ) then goto $3CBC
+$3CBB: $5007:  F: r16 - $07 (r16 - 7)
+$3CBC: $0F01:  F: r16 + r17 (r16 + r17)
+$3CBD: $0F30:  F: r19 + r16 (HEX_Line_CheckSum + r16)
+$3CBE: $9508:  F: RET (Ret)
+-----          V: _BOOT_Test_Char
+               C: if (RXC0 = 1) then goto $3CC5 ...
+$3CBF: $9100:     [$00C0] -> r16
+$3CC0: $00C0:  
+$3CC1: $FD07:     if (r16.7=0 then SKIP
+$3CC2: $C002:     goto $3CC5 (RJMP)
+$3CC3: $E000:  F: $00 -> r16 (0 -> r16)
+$3CC4: $9508:  F: RET (Ret)
+-----          L: 
+$3CC5: $9100:  F: [$00C6] -> r16 (UDR0 -> r16)
+$3CC6: $00C6:  
+$3CC7: $9508:  F: RET (Ret)
+-----          V: _Write_Page
+$3CC8: $E113:  F: $13 -> r17 (xOff -> r17)
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3CC9 ...
+$3CC9: $9100:     [$00C0] -> r16
+$3CCA: $00C0:  
+$3CCB: $FF05:     if (r16.5=1 then SKIP
+$3CCC: $CFFC:     goto $3CC9 (RJMP)
+$3CCD: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3CCE: $00C6:  
+$3CCF: $E06A:  F: $0A -> r22 (10 -> BOOT_Error_Counter)
+-----          L: 
+$3CD0: $01FA:  F: r20,r21 -> r30,r31 (BOOT_FLASH_Page_Address -> Z)
+$3CD1: $E013:  F: $03 -> r17 (BOOT_SPM_PAGE_ERASE -> r17)
+$3CD2: $DFCC:  F: rcall $3C9F (_BOOT_Do_SPM_)
+$3CD3: $E111:  F: $11 -> r17 (BOOT_SPM_RWW_REENABLE -> r17)
+$3CD4: $DFCA:  F: rcall $3C9F (_BOOT_Do_SPM_)
+$3CD5: $E420:  F: $40 -> r18 (Flash_Page_Size -> r18)
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3CD6: $E0C0:     $00 -> r28
+$3CD7: $E0D1:     $01 -> r29
+-----          L: 
+$3CD8: $9009:  F: [Y++] -> r0 ([Y++] -> r0)
+$3CD9: $9019:  F: [Y++] -> r1 ([Y++] -> r1)
+$3CDA: $E011:  F: $01 -> r17 (BOOT_SPM_LOAD_BUFFER -> r17)
+$3CDB: $DFC3:  F: rcall $3C9F (_BOOT_Do_SPM_)
+$3CDC: $9632:  F: r30,r31 + $02 (Z + 2)
+               C: if (r18--) then goto $3CD8 ...
+$3CDD: $952A:     r18 --
+$3CDE: $F7C9:     if (Z=0) then goto $3CD8
+$3CDF: $01FA:  F: r20,r21 -> r30,r31 (BOOT_FLASH_Page_Address -> Z)
+$3CE0: $E015:  F: $05 -> r17 (BOOT_SPM_PAGE_WRITE -> r17)
+$3CE1: $DFBD:  F: rcall $3C9F (_BOOT_Do_SPM_)
+$3CE2: $E111:  F: $11 -> r17 (BOOT_SPM_RWW_REENABLE -> r17)
+$3CE3: $DFBB:  F: rcall $3C9F (_BOOT_Do_SPM_)
+$3CE4: $01FA:  F: r20,r21 -> r30,r31 (BOOT_FLASH_Page_Address -> Z)
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3CE5: $E0C0:     $00 -> r28
+$3CE6: $E0D1:     $01 -> r29
+$3CE7: $E820:  F: $80 -> r18 (Flash_Page_Size*2 -> r18)
+-----          L: 
+$3CE8: $9105:  F: LPM[Z++] -> r16 (LPM[Z++] -> r16)
+               C: if (r16 = [Y++]) then goto $3CF6 ...
+$3CE9: $9119:     [Y++] -> r17
+$3CEA: $1701:     r16 = r17
+$3CEB: $F051:     if (Z=1) then goto $3CF6
+               C: if (BOOT_Error_Counter --) then goto $3CD0 ...
+$3CEC: $956A:     r22 --
+$3CED: $F711:     if (Z=0) then goto $3CD0
+$3CEE: $E213:  F: $23 -> r17 ("#" -> r17)
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3CEF ...
+$3CEF: $9100:     [$00C0] -> r16
+$3CF0: $00C0:  
+$3CF1: $FF05:     if (r16.5=1 then SKIP
+$3CF2: $CFFC:     goto $3CEF (RJMP)
+$3CF3: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3CF4: $00C6:  
+-----          L: 
+$3CF5: $CFFF:  J: goto $3CF5 (RJMP)
+-----          L: 
+               C: if (r18--) then goto $3CE8 ...
+$3CF6: $952A:     r18 --
+$3CF7: $F781:     if (Z=0) then goto $3CE8
+-----          L: 
+               C: if (SPMCSR.6 = 0) then goto $3CFE ...
+$3CF8: $B707:     p$37 -> r16
+$3CF9: $FF06:     if (r16.6=1 then SKIP
+$3CFA: $C003:     goto $3CFE (RJMP)
+$3CFB: $E111:  F: $11 -> r17 (BOOT_SPM_RWW_REENABLE -> r17)
+$3CFC: $DFA2:  F: rcall $3C9F (_BOOT_Do_SPM_)
+$3CFD: $CFFA:  J: goto $3CF8 (RJMP)
+-----          L: 
+$3CFE: $01FA:  F: r20,r21 -> r30,r31 (BOOT_FLASH_Page_Address -> Z)
+               F: Z + Flash_Page_Size * 2  ...
+$3CFF: $58E0:     r30 - $80
+$3D00: $4FFF:     r31 - $FF -
+$3D01: $01AF:  F: r30,r31 -> r20,r21 (Z -> BOOT_FLASH_Page_Address)
+$3D02: $9508:  F: RET (Ret)
+-----          V: _BOOT_Pause
+               F: 16000 -> X  ...
+$3D03: $E8A0:     $80 -> r26
+$3D04: $E3BE:     $3E -> r27
+-----          L: 
+$3D05: $0000:  F: NOP (NOP)
+               C: if (X--) then goto $3D05 ...
+$3D06: $50A1:     r26 - $01
+$3D07: $40B0:     r27 - $00 -
+$3D08: $F7E1:     if (Z=0) then goto $3D05
+$3D09: $9508:  F: RET (Ret)

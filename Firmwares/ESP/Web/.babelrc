@@ -1,0 +1,42 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "loose": true,
+        "uglify": true,
+        "debug": true,
+        "useBuiltIns": "usage",
+        "include": [
+          "es6.promise",
+          "es6.map",
+          "es6.set"
+        ],
+        "browsers": [
+          "opera >= 12",
+          "chrome > 24",
+          "firefox > 20",
+          "ie >= 9"
+        ]
+      }
+    ],
+    "stage-0"
+  ],
+  "plugins": [
+    [
+      "transform-react-jsx",
+      {
+        "pragma": "h"
+      }
+    ],
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ]
+  ]
+}

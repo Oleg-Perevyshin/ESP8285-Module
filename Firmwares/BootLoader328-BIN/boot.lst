@@ -1,0 +1,628 @@
+*********   D:\Projects\ESP8285-Module\Firmwares\BootLoader328-BIN\boot.alp    ***********
+*** BOOT section... ***
+$3E00: $940C:  V: goto $3E3D
+$3E01: $3E3D:  
+$3E02: $9518:  V: RETI
+$3E03: $0000:  V: NOP
+$3E04: $9518:  V: RETI
+$3E05: $0000:  V: NOP
+$3E06: $9518:  V: RETI
+$3E07: $0000:  V: NOP
+$3E08: $9518:  V: RETI
+$3E09: $0000:  V: NOP
+$3E0A: $9518:  V: RETI
+$3E0B: $0000:  V: NOP
+$3E0C: $9518:  V: RETI
+$3E0D: $0000:  V: NOP
+$3E0E: $9518:  V: RETI
+$3E0F: $0000:  V: NOP
+$3E10: $9518:  V: RETI
+$3E11: $0000:  V: NOP
+$3E12: $9518:  V: RETI
+$3E13: $0000:  V: NOP
+$3E14: $9518:  V: RETI
+$3E15: $0000:  V: NOP
+$3E16: $9518:  V: RETI
+$3E17: $0000:  V: NOP
+$3E18: $9518:  V: RETI
+$3E19: $0000:  V: NOP
+$3E1A: $9518:  V: RETI
+$3E1B: $0000:  V: NOP
+$3E1C: $9518:  V: RETI
+$3E1D: $0000:  V: NOP
+$3E1E: $9518:  V: RETI
+$3E1F: $0000:  V: NOP
+$3E20: $9518:  V: RETI
+$3E21: $0000:  V: NOP
+$3E22: $9518:  V: RETI
+$3E23: $0000:  V: NOP
+$3E24: $9518:  V: RETI
+$3E25: $0000:  V: NOP
+$3E26: $9518:  V: RETI
+$3E27: $0000:  V: NOP
+$3E28: $9518:  V: RETI
+$3E29: $0000:  V: NOP
+$3E2A: $9518:  V: RETI
+$3E2B: $0000:  V: NOP
+$3E2C: $9518:  V: RETI
+$3E2D: $0000:  V: NOP
+$3E2E: $9518:  V: RETI
+$3E2F: $0000:  V: NOP
+$3E30: $9518:  V: RETI
+$3E31: $0000:  V: NOP
+$3E32: $9518:  V: RETI
+$3E33: $0000:  V: NOP
+-----          V: BOOT_startInitString
+-----          L: 
+-----          L: 
+$3E34: $01 $53 $59 $53 $1F $42 $4C $1F $02 $46 $43 $46 $03 $42 $35 $04
+$3E3C: $00 $FF
+-----          V: BOOT_Reset
+-----          L: _BOOT_HEX_to_Flash
+-----          L: 
+$3E3D: $94F8:  F: 0 -> I (0 -> I)
+               C: if (BOOT_fatalErrorFlag -= 123) then goto $3E42 ...
+$3E3E: $372B:     r18 = $7B
+$3E3F: $F411:     if (Z=0) then goto $3E42
+$3E40: $E020:  F: $00 -> r18 (0 -> BOOT_fatalErrorFlag)
+-----          L: 
+$3E41: $CFFF:  J: goto $3E41 (RJMP)
+-----          L: 
+$3E42: $EF0F:  S: $FF -> r16 ($FF->r16)
+$3E43: $BF0D:  S: r16 -> p$3D (r16->p61)
+$3E44: $E008:  S: $08 -> r16 ($08->r16)
+$3E45: $BF0E:  S: r16 -> p$3E (r16->p62)
+$3E46: $E000:  S: $00 -> r16 ($00->r16)
+$3E47: $9300:  S: r16 -> [$00C5] (r16->UBRR0H)
+$3E48: $00C5:  
+$3E49: $E100:  S: $10 -> r16 ($10->r16)
+$3E4A: $9300:  S: r16 -> [$00C4] (r16->UBRR0L)
+$3E4B: $00C4:  
+$3E4C: $E006:  S: $06 -> r16 ($06->r16)
+$3E4D: $9300:  S: r16 -> [$00C2] (r16->UCSR0C)
+$3E4E: $00C2:  
+$3E4F: $E002:  S: $02 -> r16 ($02->r16)
+$3E50: $9300:  S: r16 -> [$00C0] (r16->UCSR0A)
+$3E51: $00C0:  
+$3E52: $E108:  S: $18 -> r16 ($18->r16)
+$3E53: $9300:  S: r16 -> [$00C1] (r16->UCSR0B)
+$3E54: $00C1:  
+-----          L: 
+$3E55: $D092:  F: rcall $3EE8 (_BOOT_transmitIdent)
+-----          L: 
+-----          L: 
+$3E56: $E020:  F: $00 -> r18 (0 -> BOOT_fatalErrorFlag)
+$3E57: $D09E:  F: rcall $3EF6 (_BOOT_getSizeBIN)
+               C: if (X:DWord < FLASH_SPACE_SIZE) then goto $3E5F ...
+$3E58: $30A0:     r26 = $00
+$3E59: $E71E:     $7E -> r17
+$3E5A: $07B1:     r27 = r17=
+$3E5B: $E010:     $00 -> r17
+$3E5C: $07C1:     r28 = r17=
+$3E5D: $07D1:     r29 = r17=
+$3E5E: $F000:     if ( < ) then goto $3E5F
+-----          L: 
+               F: X:DWord -> BOOT_flashBINsize  ...
+$3E5F: $93A0:     r26 -> [$0180]
+$3E60: $0180:  
+$3E61: $93B0:     r27 -> [$0181]
+$3E62: $0181:  
+$3E63: $93C0:     r28 -> [$0182]
+$3E64: $0182:  
+$3E65: $93D0:     r29 -> [$0183]
+$3E66: $0183:  
+-----          L: 
+$3E67: $D08E:  F: rcall $3EF6 (_BOOT_getSizeBIN)
+               C: if (X:DWord < EEPROM_SPACE_SIZE) then goto $3E6F ...
+$3E68: $30A0:     r26 = $00
+$3E69: $E014:     $04 -> r17
+$3E6A: $07B1:     r27 = r17=
+$3E6B: $E010:     $00 -> r17
+$3E6C: $07C1:     r28 = r17=
+$3E6D: $07D1:     r29 = r17=
+$3E6E: $F000:     if ( < ) then goto $3E6F
+-----          L: 
+               F: X:DWord -> BOOT_eepromBINsize  ...
+$3E6F: $93A0:     r26 -> [$0184]
+$3E70: $0184:  
+$3E71: $93B0:     r27 -> [$0185]
+$3E72: $0185:  
+$3E73: $93C0:     r28 -> [$0186]
+$3E74: $0186:  
+$3E75: $93D0:     r29 -> [$0187]
+$3E76: $0187:  
+-----          L: 
+-----          L: 
+               F: START_FLASH_ADDRESS -> BOOT_writePageAddress  ...
+$3E77: $E030:     $00 -> r19
+$3E78: $E040:     $00 -> r20
+               F: BOOT_flashBINsize -> BOOT_DWordCounter  ...
+$3E79: $9160:     [$0180] -> r22
+$3E7A: $0180:  
+$3E7B: $9170:     [$0181] -> r23
+$3E7C: $0181:  
+$3E7D: $9180:     [$0182] -> r24
+$3E7E: $0182:  
+$3E7F: $9190:     [$0183] -> r25
+$3E80: $0183:  
+-----          L: 
+               C: if (BOOT_DWordCounter = 0) then goto $3EAB ...
+$3E81: $3060:     r22 = $00
+$3E82: $E010:     $00 -> r17
+$3E83: $0771:     r23 = r17=
+$3E84: $0781:     r24 = r17=
+$3E85: $0791:     r25 = r17=
+$3E86: $F121:     if (Z=1) then goto $3EAB
+-----          L: 
+-----          L: 
+$3E87: $E111:  F: $11 -> r17 (XON -> r17)
+$3E88: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3E89: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3E8A ...
+$3E8A: $9100:     [$00C0] -> r16
+$3E8B: $00C0:  
+$3E8C: $FF05:     if (r16.5=1 then SKIP
+$3E8D: $CFFC:     goto $3E8A (RJMP)
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3E8E: $E0C0:     $00 -> r28
+$3E8F: $E0D1:     $01 -> r29
+               F: Flash_Page_Size*2 -> X  ...
+$3E90: $E8A0:     $80 -> r26
+$3E91: $E0B0:     $00 -> r27
+-----          L: 
+$3E92: $D091:  F: rcall $3F24 (_BOOT_receiveChar)
+$3E93: $9309:  F: r16 -> [Y++] (r16 -> [Y++])
+-----          L: 
+               C: if (BOOT_DWordCounter--) then goto $3E9A ...
+$3E94: $5061:     r22 - $01
+$3E95: $4070:     r23 - $00 -
+$3E96: $4080:     r24 - $00 -
+$3E97: $4090:     r25 - $00 -
+$3E98: $F409:     if (Z=0) then goto $3E9A
+$3E99: $C003:  J: goto $3E9D (RJMP)
+-----          L: 
+               C: if (X--) then goto $3E92 ...
+$3E9A: $50A1:     r26 - $01
+$3E9B: $40B0:     r27 - $00 -
+$3E9C: $F7A9:     if (Z=0) then goto $3E92
+-----          L: 
+-----          L: 
+-----          L: 
+$3E9D: $E113:  F: $13 -> r17 (XOFF -> r17)
+$3E9E: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3E9F: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3EA0 ...
+$3EA0: $9100:     [$00C0] -> r16
+$3EA1: $00C0:  
+$3EA2: $FF05:     if (r16.5=1 then SKIP
+$3EA3: $CFFC:     goto $3EA0 (RJMP)
+$3EA4: $D0B5:  F: rcall $3F5A (_BOOT_writeFlashPage)
+-----          L: 
+               C: if (BOOT_DWordCounter -= 0) then goto $3E87 ...
+$3EA5: $3060:     r22 = $00
+$3EA6: $E010:     $00 -> r17
+$3EA7: $0771:     r23 = r17=
+$3EA8: $0781:     r24 = r17=
+$3EA9: $0791:     r25 = r17=
+$3EAA: $F6E1:     if (Z=0) then goto $3E87
+-----          L: 
+$3EAB: $E020:  F: $00 -> r18 (0 -> BOOT_fatalErrorFlag)
+-----          L: 
+-----          L: 
+-----          L: 
+               F: START_EEPROM_ADDRESS -> BOOT_writePageAddress  ...
+$3EAC: $E030:     $00 -> r19
+$3EAD: $E040:     $00 -> r20
+               F: BOOT_eepromBINsize -> BOOT_DWordCounter  ...
+$3EAE: $9160:     [$0184] -> r22
+$3EAF: $0184:  
+$3EB0: $9170:     [$0185] -> r23
+$3EB1: $0185:  
+$3EB2: $9180:     [$0186] -> r24
+$3EB3: $0186:  
+$3EB4: $9190:     [$0187] -> r25
+$3EB5: $0187:  
+-----          L: 
+               C: if (BOOT_DWordCounter = 0) then goto $3EE0 ...
+$3EB6: $3060:     r22 = $00
+$3EB7: $E010:     $00 -> r17
+$3EB8: $0771:     r23 = r17=
+$3EB9: $0781:     r24 = r17=
+$3EBA: $0791:     r25 = r17=
+$3EBB: $F121:     if (Z=1) then goto $3EE0
+-----          L: 
+-----          L: 
+$3EBC: $E111:  F: $11 -> r17 (XON -> r17)
+$3EBD: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3EBE: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3EBF ...
+$3EBF: $9100:     [$00C0] -> r16
+$3EC0: $00C0:  
+$3EC1: $FF05:     if (r16.5=1 then SKIP
+$3EC2: $CFFC:     goto $3EBF (RJMP)
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3EC3: $E0C0:     $00 -> r28
+$3EC4: $E0D1:     $01 -> r29
+               F: Flash_Page_Size*2 -> X  ...
+$3EC5: $E8A0:     $80 -> r26
+$3EC6: $E0B0:     $00 -> r27
+-----          L: 
+$3EC7: $D05C:  F: rcall $3F24 (_BOOT_receiveChar)
+$3EC8: $9309:  F: r16 -> [Y++] (r16 -> [Y++])
+-----          L: 
+               C: if (BOOT_DWordCounter--) then goto $3ECF ...
+$3EC9: $5061:     r22 - $01
+$3ECA: $4070:     r23 - $00 -
+$3ECB: $4080:     r24 - $00 -
+$3ECC: $4090:     r25 - $00 -
+$3ECD: $F409:     if (Z=0) then goto $3ECF
+$3ECE: $C003:  J: goto $3ED2 (RJMP)
+-----          L: 
+               C: if (X--) then goto $3EC7 ...
+$3ECF: $50A1:     r26 - $01
+$3ED0: $40B0:     r27 - $00 -
+$3ED1: $F7A9:     if (Z=0) then goto $3EC7
+-----          L: 
+-----          L: 
+-----          L: 
+$3ED2: $E113:  F: $13 -> r17 (XOFF -> r17)
+$3ED3: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3ED4: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3ED5 ...
+$3ED5: $9100:     [$00C0] -> r16
+$3ED6: $00C0:  
+$3ED7: $FF05:     if (r16.5=1 then SKIP
+$3ED8: $CFFC:     goto $3ED5 (RJMP)
+$3ED9: $D06A:  F: rcall $3F44 (_BOOT_writeEEPROMpage)
+-----          L: 
+               C: if (BOOT_DWordCounter -= 0) then goto $3EBC ...
+$3EDA: $3060:     r22 = $00
+$3EDB: $E010:     $00 -> r17
+$3EDC: $0771:     r23 = r17=
+$3EDD: $0781:     r24 = r17=
+$3EDE: $0791:     r25 = r17=
+$3EDF: $F6E1:     if (Z=0) then goto $3EBC
+-----          L: 
+-----          L: 
+$3EE0: $E31C:  F: $3C -> r17 ("<" -> r17)
+$3EE1: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3EE2: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3EE3 ...
+$3EE3: $9100:     [$00C0] -> r16
+$3EE4: $00C0:  
+$3EE5: $FF05:     if (r16.5=1 then SKIP
+$3EE6: $CFFC:     goto $3EE3 (RJMP)
+$3EE7: $D00C:  F: rcall $3EF4 (_BOOT_break)
+-----          V: _BOOT_transmitIdent
+-----          L: 
+               F: BOOT_startInitString*2 -> Z  ...
+$3EE8: $E6E8:     $68 -> r30
+$3EE9: $E7FC:     $7C -> r31
+-----          L: 
+-----          L: 
+$3EEA: $9115:  F: LPM[Z++] -> r17 (LPM[Z++] -> r17)
+$3EEB: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3EEC: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3EED ...
+$3EED: $9100:     [$00C0] -> r16
+$3EEE: $00C0:  
+$3EEF: $FF05:     if (r16.5=1 then SKIP
+$3EF0: $CFFC:     goto $3EED (RJMP)
+               C: if (r17 -= 0) then goto $3EEA ...
+$3EF1: $3010:     r17 = $00
+$3EF2: $F7B9:     if (Z=0) then goto $3EEA
+$3EF3: $9508:  F: RET (RET)
+-----          V: _BOOT_break
+-----          L: 
+-----          L: 
+$3EF4: $940C:  F: goto $0 (JMP $0000)
+$3EF5: $0000:  
+-----          V: _BOOT_getSizeBIN
+-----          L: 
+-----          L: 
+               F: 0 -> X:DWord  ...
+$3EF6: $E0A0:     $00 -> r26
+$3EF7: $E0B0:     $00 -> r27
+$3EF8: $E0C0:     $00 -> r28
+$3EF9: $E0D0:     $00 -> r29
+-----          L: 
+$3EFA: $D029:  F: rcall $3F24 (_BOOT_receiveChar)
+               C: if (r16 < "0") then goto $3F1A ...
+$3EFB: $3300:     r16 = $30
+$3EFC: $F0E8:     if ( < ) then goto $3F1A
+               C: if (r16 >= "9"+1) then goto $3EF4 ...
+$3EFD: $330A:     r16 = $3A
+$3EFE: $F7A8:     if ( >= ) then goto $3EF4
+               F: <<X:DWord  ...
+$3EFF: $0FAA:     << r26
+$3F00: $1FBB:     << r27 <
+$3F01: $1FCC:     << r28 <
+$3F02: $1FDD:     << r29 <
+               F: X:DWord -> BOOT_DWordCounter  ...
+$3F03: $2F6A:     r26 -> r22
+$3F04: $2F7B:     r27 -> r23
+$3F05: $2F8C:     r28 -> r24
+$3F06: $2F9D:     r29 -> r25
+               F: <<X:DWord  ...
+$3F07: $0FAA:     << r26
+$3F08: $1FBB:     << r27 <
+$3F09: $1FCC:     << r28 <
+$3F0A: $1FDD:     << r29 <
+               F: <<X:DWord  ...
+$3F0B: $0FAA:     << r26
+$3F0C: $1FBB:     << r27 <
+$3F0D: $1FCC:     << r28 <
+$3F0E: $1FDD:     << r29 <
+               F: X:DWord + BOOT_DWordCounter  ...
+$3F0F: $0FA6:     r26 + r22
+$3F10: $1FB7:     r27 + r23 +
+$3F11: $1FC8:     r28 + r24 +
+$3F12: $1FD9:     r29 + r25 +
+$3F13: $5300:  F: r16 - $30 (r16 - "0")
+               F: X:DWord + r16  ...
+$3F14: $0FA0:     r26 + r16
+$3F15: $E010:     $00 -> r17
+$3F16: $1FB1:     r27 + r17 +
+$3F17: $1FC1:     r28 + r17 +
+$3F18: $1FD1:     r29 + r17 +
+$3F19: $CFE0:  J: goto $3EFA (RJMP)
+-----          L: 
+$3F1A: $D009:  F: rcall $3F24 (_BOOT_receiveChar)
+$3F1B: $9508:  F: RET (RET)
+-----          V: _BOOT_doSPM_
+-----          L: 
+-----          L: 
+-----          L: 
+               C: if (SELFPRGEN = 1) then goto $3F1C ...
+$3F1C: $B707:     p$37 -> r16
+$3F1D: $FD00:     if (r16.0=0 then SKIP
+$3F1E: $CFFD:     goto $3F1C (RJMP)
+-----          L: 
+$3F1F: $99F9:  C: if (p$1F.1=0 then SKIP (EEPE = 1)
+$3F20: $CFFE:  C: goto $3F1F (RJMP) (EEPE = 1)
+$3F21: $BF17:  F: r17 -> p$37 (r17 -> SPMCSR)
+$3F22: $95E8:  F: SPM (SPM)
+$3F23: $9508:  F: RET (RET)
+-----          V: _BOOT_receiveChar
+-----          L: 
+-----          L: 
+               F: BOOT_WAIT_ANSWER_MS/50*1000 -> Z  ...
+$3F24: $E2E0:     $20 -> r30
+$3F25: $E4FE:     $4E -> r31
+-----          L: 
+-----          L: 
+               F: (50*CPU_Clock_Frequency/1000000-2)/4 -> r16:Word  ...
+$3F26: $EC07:     $C7 -> r16
+$3F27: $E010:     $00 -> r17
+-----          L: 
+               C: if (r16:Word --) then goto $3F28 ...
+$3F28: $5001:     r16 - $01
+$3F29: $4010:     r17 - $00 -
+$3F2A: $F7E9:     if (Z=0) then goto $3F28
+$3F2B: $0000:  F: NOP (NOP)
+-----          L: 
+-----          L: 
+-----          L: 
+$3F2C: $0000:  F: NOP (NOP)
+-----          L: 
+$3F2D: $0000:  F: NOP (NOP)
+-----          L: 
+               C: if (Z--) then goto $3F3D ...
+$3F2E: $50E1:     r30 - $01
+$3F2F: $40F0:     r31 - $00 -
+$3F30: $F461:     if (Z=0) then goto $3F3D
+               C: if (BOOT_fatalErrorFlag = 0) then goto $3F3A ...
+$3F31: $3020:     r18 = $00
+$3F32: $F039:     if (Z=1) then goto $3F3A
+-----          L: 
+$3F33: $E213:  F: $23 -> r17 ("#" -> r17)
+$3F34: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3F35: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3F36 ...
+$3F36: $9100:     [$00C0] -> r16
+$3F37: $00C0:  
+$3F38: $FF05:     if (r16.5=1 then SKIP
+$3F39: $CFFC:     goto $3F36 (RJMP)
+-----          L: 
+$3F3A: $E72B:  F: $7B -> r18 (123 -> BOOT_fatalErrorFlag)
+$3F3B: $DFB8:  F: rcall $3EF4 (_BOOT_break)
+-----          L: 
+$3F3C: $CFFF:  J: goto $3F3C (RJMP)
+-----          L: 
+               C: if (RXC0 = 0) then goto $3F26 ...
+$3F3D: $9100:     [$00C0] -> r16
+$3F3E: $00C0:  
+$3F3F: $FF07:     if (r16.7=1 then SKIP
+$3F40: $CFE5:     goto $3F26 (RJMP)
+$3F41: $9100:  F: [$00C6] -> r16 (UDR0 -> r16)
+$3F42: $00C6:  
+$3F43: $9508:  F: RET (RET)
+-----          V: _BOOT_writeEEPROMpage
+-----          L: 
+-----          L: 
+               F: BOOT_writePageAddress -> Z  ...
+$3F44: $2FE3:     r19 -> r30
+$3F45: $2FF4:     r20 -> r31
+-----          L: 
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3F46: $E0C0:     $00 -> r28
+$3F47: $E0D1:     $01 -> r29
+-----          L: 
+               F: [Y++] -> EE[Z++]  ...
+$3F48: $9109:     [Y++] -> r16
+$3F49: $BDE1:     r30 -> p$21
+$3F4A: $BDF2:     r31 -> p$22
+$3F4B: $9631:     r30,r31 + $01
+$3F4C: $BD00:     r16 -> p$20
+$3F4D: $9AFA:     1 -> p$1F.2
+$3F4E: $9AF9:     1 -> p$1F.1
+$3F4F: $99F9:     if (p$1F.1=0 then SKIP
+$3F50: $CFFE:     goto $3F4F (RJMP)
+               F: X++  ...
+$3F51: $5FAF:     r26 - $FF
+$3F52: $4FBF:     r27 - $FF -
+               C: if (X < Flash_Page_Size*2) then goto $3F48 ...
+$3F53: $38A0:     r26 = $80
+$3F54: $E010:     $00 -> r17
+$3F55: $07B1:     r27 = r17=
+$3F56: $F388:     if ( < ) then goto $3F48
+-----          L: 
+-----          L: 
+               F: BOOT_writePageAddress + Flash_Page_Size * 2  ...
+$3F57: $5830:     r19 - $80
+$3F58: $4F4F:     r20 - $FF -
+$3F59: $9508:  F: RET (RET)
+-----          V: _BOOT_writeFlashPage
+-----          L: 
+-----          L: 
+$3F5A: $E05A:  F: $0A -> r21 (BOOT_PAGE_TRY_WRITE_NUMB -> BOOT_errorCounter)
+-----          L: 
+               F: BOOT_writePageAddress -> Z  ...
+$3F5B: $2FE3:     r19 -> r30
+$3F5C: $2FF4:     r20 -> r31
+               F: Flash_Page_Size -> X  ...
+$3F5D: $E4A0:     $40 -> r26
+$3F5E: $E0B0:     $00 -> r27
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3F5F: $E0C0:     $00 -> r28
+$3F60: $E0D1:     $01 -> r29
+-----          L: 
+$3F61: $E013:  F: $03 -> r17 (SPM_Page_Erase -> r17)
+$3F62: $DFB9:  F: rcall $3F1C (_BOOT_doSPM_)
+-----          L: 
+$3F63: $E111:  F: $11 -> r17 (SPM_RWW_Read_Enable -> r17)
+$3F64: $DFB7:  F: rcall $3F1C (_BOOT_doSPM_)
+-----          L: 
+$3F65: $9009:  F: [Y++] -> r0 ([Y++] -> r0)
+$3F66: $9019:  F: [Y++] -> r1 ([Y++] -> r1)
+-----          L: 
+$3F67: $E011:  F: $01 -> r17 (SPM_Load_Buffer -> r17)
+$3F68: $DFB3:  F: rcall $3F1C (_BOOT_doSPM_)
+$3F69: $9632:  F: r30,r31 + $02 (Z + 2)
+               C: if (X--) then goto $3F65 ...
+$3F6A: $50A1:     r26 - $01
+$3F6B: $40B0:     r27 - $00 -
+$3F6C: $F7C1:     if (Z=0) then goto $3F65
+-----          L: 
+$3F6D: $EF2F:  F: $FF -> r18 (255 -> BOOT_fatalErrorFlag)
+-----          L: 
+               F: BOOT_writePageAddress -> Z  ...
+$3F6E: $2FE3:     r19 -> r30
+$3F6F: $2FF4:     r20 -> r31
+-----          L: 
+$3F70: $E015:  F: $05 -> r17 (SPM_Page_Write -> r17)
+$3F71: $DFAA:  F: rcall $3F1C (_BOOT_doSPM_)
+-----          L: 
+$3F72: $E111:  F: $11 -> r17 (SPM_RWW_Read_Enable -> r17)
+$3F73: $DFA8:  F: rcall $3F1C (_BOOT_doSPM_)
+-----          L: 
+               F: BOOT_writePageAddress -> Z  ...
+$3F74: $2FE3:     r19 -> r30
+$3F75: $2FF4:     r20 -> r31
+               F: Flash_Page_Size*2 -> X  ...
+$3F76: $E8A0:     $80 -> r26
+$3F77: $E0B0:     $00 -> r27
+               F: @BOOT_SRAM_Buffer -> Y  ...
+$3F78: $E0C0:     $00 -> r28
+$3F79: $E0D1:     $01 -> r29
+-----          L: 
+$3F7A: $9105:  F: LPM[Z++] -> r16 (LPM[Z++] -> r16)
+               C: if (r16 = [Y++]) then goto $3F88 ...
+$3F7B: $9119:     [Y++] -> r17
+$3F7C: $1701:     r16 = r17
+$3F7D: $F051:     if (Z=1) then goto $3F88
+               C: if (BOOT_errorCounter--) then goto $3F5B ...
+$3F7E: $955A:     r21 --
+$3F7F: $F6D9:     if (Z=0) then goto $3F5B
+-----          L: 
+$3F80: $E213:  F: $23 -> r17 ("#" -> r17)
+$3F81: $9310:  F: r17 -> [$00C6] (r17 -> UDR0)
+$3F82: $00C6:  
+-----          L: 
+               C: if (UDRE0 = 0) then goto $3F83 ...
+$3F83: $9100:     [$00C0] -> r16
+$3F84: $00C0:  
+$3F85: $FF05:     if (r16.5=1 then SKIP
+$3F86: $CFFC:     goto $3F83 (RJMP)
+-----          L: 
+$3F87: $CFFF:  J: goto $3F87 (RJMP)
+-----          L: 
+               C: if (X--) then goto $3F7A ...
+$3F88: $50A1:     r26 - $01
+$3F89: $40B0:     r27 - $00 -
+$3F8A: $F779:     if (Z=0) then goto $3F7A
+-----          L: 
+-----          L: 
+               C: if (SPMCSR.6 = 0) then goto $3F91 ...
+$3F8B: $B707:     p$37 -> r16
+$3F8C: $FF06:     if (r16.6=1 then SKIP
+$3F8D: $C003:     goto $3F91 (RJMP)
+-----          L: 
+$3F8E: $E111:  F: $11 -> r17 (SPM_RWW_Read_Enable -> r17)
+$3F8F: $DF8C:  F: rcall $3F1C (_BOOT_doSPM_)
+$3F90: $CFFA:  J: goto $3F8B (RJMP)
+-----          L: 
+-----          L: 
+               F: BOOT_writePageAddress + Flash_Page_Size * 2  ...
+$3F91: $5830:     r19 - $80
+$3F92: $4F4F:     r20 - $FF -
+$3F93: $9508:  F: RET (RET)
+-----          V: _Wait_ms_
+               F: r16:Word ->  ...
+$3F94: $930F:     r16 ->
+$3F95: $931F:     r17 ->
+-----          L: 
+               F: (1000*CPU_Clock_Frequency/1000000-(9+8)-2)/4 -> r16:Word  ...
+$3F96: $E90B:     $9B -> r16
+$3F97: $E01F:     $0F -> r17
+-----          L: 
+               C: if (r16:Word --) then goto $3F98 ...
+$3F98: $5001:     r16 - $01
+$3F99: $4010:     r17 - $00 -
+$3F9A: $F7E9:     if (Z=0) then goto $3F98
+$3F9B: $0000:  F: NOP (NOP)
+-----          L: 
+-----          L: 
+-----          L: 
+$3F9C: $0000:  F: NOP (NOP)
+-----          L: 
+               F: -> r16:Word  ...
+$3F9D: $911F:     -> r17
+$3F9E: $910F:     -> r16
+-----          L: 
+               F: r16:Word ->  ...
+$3F9F: $930F:     r16 ->
+$3FA0: $931F:     r17 ->
+-----          L: 
+               F: (1000*CPU_Clock_Frequency/1000000-(4+8)-2)/4 -> r16:Word  ...
+$3FA1: $E90C:     $9C -> r16
+$3FA2: $E01F:     $0F -> r17
+-----          L: 
+               C: if (r16:Word --) then goto $3FA3 ...
+$3FA3: $5001:     r16 - $01
+$3FA4: $4010:     r17 - $00 -
+$3FA5: $F7E9:     if (Z=0) then goto $3FA3
+$3FA6: $0000:  F: NOP (NOP)
+-----          L: 
+-----          L: 
+-----          L: 
+$3FA7: $0000:  F: NOP (NOP)
+-----          L: 
+$3FA8: $0000:  F: NOP (NOP)
+-----          L: 
+               F: -> r16:Word  ...
+$3FA9: $911F:     -> r17
+$3FAA: $910F:     -> r16
+               C: if (r16:Word --) then goto $3F9F ...
+$3FAB: $5001:     r16 - $01
+$3FAC: $4010:     r17 - $00 -
+$3FAD: $F789:     if (Z=0) then goto $3F9F
+$3FAE: $0000:  F: NOP (NOP)
+$3FAF: $9508:  F: RET (RET)

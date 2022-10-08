@@ -1,0 +1,107 @@
+/* Обертка центральной панели */
+.main {
+  margin: 0 auto 5em auto;
+  padding-bottom: 3em;
+  position: absolute;
+  width: 40%;
+  left: 30%;
+  min-height: 35em;
+  border-radius: 1.5em;
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* Контент центральной панели */
+.content {
+  margin: 1em auto;
+  width: 85%;
+}
+
+/* Заголовок панелей */
+.tPan {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Подвал */
+.footer {
+  padding: .3em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* БОКОВЫЕ ПАНЕЛИ */
+.lbar, .rbar {
+  z-index: -1;
+  position: absolute;
+  width: 60%;
+  overflow: hidden;
+  top: 1.5em;
+  bottom: 1.5em;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Левая панель */
+.lbar {
+  right: calc(40% + 1em);
+  border-radius: 1em 0 0 1em;
+}
+
+.lbcheck {
+  left: 0;
+}
+
+.lbcheck:before {
+  content: "\25C0";
+}
+
+input[type=checkbox]:checked + .lbcheck:before {
+  content: "\25B6";
+}
+
+#lbch:checked ~ div.lbar {
+  right: 100%;
+}
+
+/* Правая колонка */
+.rbar {
+  left: calc(40% + 1em);
+  border-radius: 0 1em 1em 0;
+}
+
+.rbcheck {
+  right: 0;
+}
+
+.rbcheck:before {
+  content: "\25B6";
+}
+
+input[type=checkbox]:checked + .rbcheck:before {
+  content: "\25C0";
+}
+
+#rbch:checked ~ div.rbar {
+  left: 100%;
+}
+
+/* Общие свойства */
+#lbch, #rbch, .checker, .sc-checker {
+  display: none;
+}
+
+.lbcheck:before, .rbcheck:before {
+  display: table-cell;
+  vertical-align: middle;
+  height: 500px;
+}
+
+#lCheck, #rCheck {
+  position: absolute;
+  margin: auto;
+  display: table;
+  top: 1em;
+  bottom: 1em;
+  width: 1em;
+  cursor: pointer;
+}
