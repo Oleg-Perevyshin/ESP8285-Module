@@ -350,7 +350,7 @@ void onEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventTyp
       saveConfig();                                                                   // Сохраняем параметры в config.json
     } else if (root.containsKey("SetAP")) {                                           // УСТАНОВИТЬ ПАРАМЕТРЫ УСТРОЙСТВА В РЕЖИМЕ ТОЧКИ ДОСТУПА apSSID, apPSK, apIP, apMS, apGW
       if (root["SetAP"][0] == "")                                                     // Если SSID в режиме AP не задан, то
-        snprintf(configDev.apSSID, sizeof(configDev.apSSID), "SOI-%s", configDev.da); // устанавливаем его по умолчанию "SOI-deviceAddress"
+        snprintf(configDev.apSSID, sizeof(configDev.apSSID), "Peleng-%s", configDev.da); // устанавливаем его по умолчанию "SOI-deviceAddress"
       else                                                                            // Иначе
         strncpy(configDev.apSSID, root["SetAP"][0], sizeof(configDev.apSSID) - 1);    // читаем принятое значение
       strncpy(configDev.apPSK, root["SetAP"][1], sizeof(configDev.apPSK) - 1);        // Читаем пароль к устройству в режиме "Точка доступа"

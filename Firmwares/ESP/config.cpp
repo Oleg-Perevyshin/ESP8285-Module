@@ -24,20 +24,20 @@ void loadConfig(int target) {
     strncpy(configDev.dv, "0", sizeof(configDev.dv) - 1);
     strncpy(configDev.du, "admin", sizeof(configDev.du) - 1);
     strncpy(configDev.dp, "admin", sizeof(configDev.dp) - 1);
-    strncpy(configDev.staSSID, "SOI-GW", sizeof(configDev.staSSID) - 1);
-    strncpy(configDev.staPSK, "MCMega20051983!", sizeof(configDev.staPSK) - 1);
+    strncpy(configDev.staSSID, "TAP-309", sizeof(configDev.staSSID) - 1);
+    strncpy(configDev.staPSK, "MCMega2005!", sizeof(configDev.staPSK) - 1);
     configDev.staIPMode = IP_DHCP;
     strncpy(configDev.staIP, "", sizeof(configDev.staIP) - 1);
     strncpy(configDev.staMS, "", sizeof(configDev.staMS) - 1);
     strncpy(configDev.staGW, "", sizeof(configDev.staGW) - 1);
-    snprintf(configDev.apSSID, sizeof(configDev.apSSID), "SOI-%s", configDev.da);
-    strncpy(configDev.apPSK, "admin", sizeof(configDev.apPSK) - 1);
+    snprintf(configDev.apSSID, sizeof(configDev.apSSID), "Peleng-%s", configDev.da);
+    strncpy(configDev.apPSK, "MCMega2005!", sizeof(configDev.apPSK) - 1);
     strncpy(configDev.apIP, "192.168.108.1", sizeof(configDev.apIP) - 1);
     strncpy(configDev.apMS, "255.255.255.0", sizeof(configDev.apMS) - 1);
     strncpy(configDev.apGW, "192.168.108.1", sizeof(configDev.apGW) - 1);
     // ... добавить пользовательские переменные
-    strncpy(configDev.in1, "In-1", sizeof(configDev.in1) - 1);
-    strncpy(configDev.in2, "In-2", sizeof(configDev.in2) - 1);
+    strncpy(configDev.in1, "T", sizeof(configDev.in1) - 1);
+    strncpy(configDev.in2, "H", sizeof(configDev.in2) - 1);
 
     return saveConfig();
   }

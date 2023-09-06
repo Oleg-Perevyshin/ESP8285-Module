@@ -1,8 +1,8 @@
 // ================================================================================ //
 // SOI-WIFI - БАЗОВЫЙ WIFI МОДУЛЬ                                                   //
-// Ядро https://github.com/esp8266/Arduino                                          //
+// Ядро https://github.com/esp8266/Arduino                              3.1.2       //
 // Загрузчик FS https://github.com/esp8266/arduino-esp8266fs-plugin                 //
-// ArduinoJson https://arduinojson.org                                              //
+// JSON https://github.com/bblanchon/ArduinoJson                        6.21.3      //
 // ESPAsyncWebServer https://github.com/me-no-dev/ESPAsyncWebServer                 //
 // ESPAsyncTCP https://github.com/me-no-dev/ESPAsyncTCP                             //
 // ESPAsyncUDP https://github.com/me-no-dev/ESPAsyncUDP                             //

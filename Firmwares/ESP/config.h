@@ -2,9 +2,9 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 
-#define DEVICE_ID           "F9"              // ID устройства https://docs.google.com/document/d/1YQLu0gtEd-ghIbiy-TvrDSWPEQVXVrVSjW4NUSNMrjo/edit?usp=sharing
-#define DEVICE_TYPE         "SYSTEM"          // Тип устройства
-#define DEVICE_MODEL        "SOI-WiFi"        // Модель устройства
+#define DEVICE_ID           "35"              // ID устройства https://docs.google.com/document/d/1YQLu0gtEd-ghIbiy-TvrDSWPEQVXVrVSjW4NUSNMrjo/edit?usp=sharing
+#define DEVICE_TYPE         "SWITCHING"         // Тип устройства
+#define DEVICE_MODEL        "WiFi-GW"        // Модель устройства
 #define VERSION             0                 // Версия прошивки
 // ================================================================================ //
 #define CONFIG_PATH         "/config.json"      // Путь к локальному файлу настроек
